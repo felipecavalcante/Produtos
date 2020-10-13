@@ -2,7 +2,7 @@
 Foi desenvolvido uma aplicação utilizando a API https://7hgi9vtkdc.execute-api.sa-east-1.amazonaws.com/sandbox/products
 
 # Arquitetura
-Foi utilizado no projeto a arquitetura MVVM + Clean Architecture com databing.
+Foi utilizado no projeto a arquitetura MVVM + Clean Architecture + Data Binding.
 
 # Bibliotecas externas
 Foram utilizados no projeto como bibliotecas:
