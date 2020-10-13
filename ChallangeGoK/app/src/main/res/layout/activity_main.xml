@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.challangegok.feature.home.presentation.MainActivityViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/base">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:paddingTop="@dimen/small"
+                    android:paddingBottom="@dimen/large"
+                    android:id="@+id/recycler_spotlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/card_spotlight" />
+
+                <include
+                    layout="@layout/card_cash"
+                    app:viewModel="@{viewModel}" />
+
+
+                <TextView
+                    android:paddingTop="@dimen/large"
+                    android:id="@+id/title_products"
+                    style="@style/TextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:visible="@{viewModel.productsTitleVisibility}"
+                    android:text="@string/products" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_products"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/card_products" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:visible="@{viewModel.showLoading}" />
+    </FrameLayout>
+</layout>
